@@ -55,13 +55,15 @@ function createUserInDatabase(user) {
 
 // Fonction de déconnexion
 function logout() {
-    firebase.auth().signOut().then(() => {
-        console.log('Déconnexion réussie');
-        window.location.href = 'login.html';
-    }).catch((error) => {
-        console.error('Erreur lors de la déconnexion:', error);
-        alert('Erreur lors de la déconnexion');
-    });
+    if (confirm('Voulez-vous vraiment vous déconnecter ?')) {
+        firebase.auth().signOut().then(() => {
+            console.log('Déconnexion réussie');
+            window.location.href = 'login.html';
+        }).catch((error) => {
+            console.error('Erreur lors de la déconnexion:', error);
+            alert('Erreur lors de la déconnexion');
+        });
+    }
 }
 
 // Attacher l'événement de déconnexion au bouton
