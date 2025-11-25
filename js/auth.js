@@ -8,9 +8,9 @@ firebase.auth().onAuthStateChanged((user) => {
         // L'utilisateur est connecté
         console.log('Utilisateur connecté:', user.email);
         
-        // Si on est sur la page de login, rediriger vers index.html
-        if (currentPage === 'login.html' || currentPage === '') {
-            window.location.href = 'index.html';
+        // Si on est sur la page de index, rediriger vers dashboard.html
+        if (currentPage === 'index.html' || currentPage === '') {
+            window.location.href = 'dashboard.html';
         }
         
         // Afficher l'email de l'utilisateur dans la sidebar
@@ -27,8 +27,8 @@ firebase.auth().onAuthStateChanged((user) => {
         console.log('Utilisateur non connecté');
         
         // Si on n'est pas sur la page de login, rediriger
-        if (currentPage !== 'login.html' && currentPage !== '') {
-            window.location.href = 'login.html';
+        if (currentPage !== 'index.html' && currentPage !== '') {
+            window.location.href = 'index.html';
         }
     }
 });
