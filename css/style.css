@@ -697,6 +697,33 @@ body {
 /* ==================== RESPONSIVE ==================== */
 
 @media (max-width: 768px) {
+    /* il ya de l'inverse ici sidebar-expend a 64px et sidebar:not (.sidebar-expanded) a 256px, je l'ai fais pour basculer l'etat initial du sidebar par celui d'un sidebar de 64px */
+    .sidebar-expanded {
+        width: 55px;
+    }
+
+    .sidebar:not(.sidebar-expanded) {
+        width: 200px;
+    }
+
+    /* Texte visible par défaut */
+    .sidebar-title,
+    .user-info,
+    .nav-text {
+        opacity: 1;
+        transform: translateX(0);
+        transition: opacity 0.3s ease, transform 0.4s ease;
+        white-space: nowrap;
+    }
+
+    /* Texte masqué mais avec animation */
+    .sidebar-expanded .sidebar-title,
+    .sidebar-expanded .user-info,
+    .sidebar-expanded .nav-text {
+        opacity: 0;
+        transform: translateX(-10px);
+        pointer-events: none;  /* empêche d'interagir même si invisible */
+    }
     
    .nav-container {
     padding: 0;
@@ -883,11 +910,32 @@ body {
 }
 @media (max-width: 480px) {
    
-    .sidebar:not(.sidebar-expanded) {
-    width: 50px;
-    }
+   /* il ya de l'inverse ici sidebar-expend a 64px et sidebar:not (.sidebar-expanded) a 256px, je l'ai fais pour basculer l'etat initial du sidebar par celui d'un sidebar de 64px */
     .sidebar-expanded {
-    width: 200px;
+        width: 50px;
+    }
+
+    .sidebar:not(.sidebar-expanded) {
+        width: 200px;
+    }
+
+    /* Texte visible par défaut */
+    .sidebar-title,
+    .user-info,
+    .nav-text {
+        opacity: 1;
+        transform: translateX(0);
+        transition: opacity 0.3s ease, transform 0.4s ease;
+        white-space: nowrap;
+    }
+
+    /* Texte masqué mais avec animation */
+    .sidebar-expanded .sidebar-title,
+    .sidebar-expanded .user-info,
+    .sidebar-expanded .nav-text {
+        opacity: 0;
+        transform: translateX(-10px);
+        pointer-events: none;  /* empêche d'interagir même si invisible */
     }
     .btn {
     width: 100%;
@@ -1034,11 +1082,32 @@ body {
     
 }
 @media (max-width: 992px) {
-    .sidebar:not(.sidebar-expanded) {
-    width: 50px;
-    }
+    /* il ya de l'inverse ici sidebar-expend a 64px et sidebar:not (.sidebar-expanded) a 256px, je l'ai fais pour basculer l'etat initial du sidebar par celui d'un sidebar de 64px */
     .sidebar-expanded {
-    width: 200px;
+        width: 50px;
+    }
+
+    .sidebar:not(.sidebar-expanded) {
+        width: 200px;
+    }
+
+    /* Texte visible par défaut */
+    .sidebar-title,
+    .user-info,
+    .nav-text {
+        opacity: 1;
+        transform: translateX(0);
+        transition: opacity 0.3s ease, transform 0.4s ease;
+        white-space: nowrap;
+    }
+
+    /* Texte masqué mais avec animation */
+    .sidebar-expanded .sidebar-title,
+    .sidebar-expanded .user-info,
+    .sidebar-expanded .nav-text {
+        opacity: 0;
+        transform: translateX(-10px);
+        pointer-events: none;  /* empêche d'interagir même si invisible */
     }
     .btn {
     width: 100%;
@@ -1159,9 +1228,56 @@ body {
     align-items: center;
     justify-content: center;
 }
+  
+}
 
-    
-    
+@media (max-width: 640px) {
+    .modal {
+        padding: 1rem;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .tracker-card-info {
+        grid-template-columns: 1fr;
+    }
+
+    .form-actions {
+        flex-direction: column-reverse;
+    }
+
+    .form-actions button {
+        width: 100%;
+    }
+    /* il ya de l'inverse ici sidebar-expend a 64px et sidebar:not (.sidebar-expanded) a 256px, je l'ai fais pour basculer l'etat initial du sidebar par celui d'un sidebar de 64px */
+.sidebar-expanded {
+    width: 64px;
+}
+
+.sidebar:not(.sidebar-expanded) {
+    width: 256px;
+}
+
+/* Texte visible par défaut */
+.sidebar-title,
+.user-info,
+.nav-text {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 0.3s ease, transform 0.4s ease;
+    white-space: nowrap;
+}
+
+/* Texte masqué mais avec animation */
+.sidebar-expanded .sidebar-title,
+.sidebar-expanded .user-info,
+.sidebar-expanded .nav-text {
+    opacity: 0;
+    transform: translateX(-10px);
+    pointer-events: none;  /* empêche d'interagir même si invisible */
+}
 }
 
 
@@ -1391,24 +1507,3 @@ body {
     border-color: #9ca3af;
 }
 
-@media (max-width: 640px) {
-    .modal {
-        padding: 1rem;
-    }
-
-    .form-row {
-        grid-template-columns: 1fr;
-    }
-
-    .tracker-card-info {
-        grid-template-columns: 1fr;
-    }
-
-    .form-actions {
-        flex-direction: column-reverse;
-    }
-
-    .form-actions button {
-        width: 100%;
-    }
-}
