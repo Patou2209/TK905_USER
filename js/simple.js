@@ -22,7 +22,7 @@ closeBtn.addEventListener('click', () => {
 
     // Sélectionne tous les éléments que tu veux observer
     const lazyElements = document.querySelectorAll(
-      ".text-image, #footer, .auth-container"
+      ".block, #footer,"
     );
 
     // Ajoute la classe de base
