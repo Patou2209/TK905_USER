@@ -58,7 +58,7 @@ function logout() {
     if (confirm('Voulez-vous vraiment vous déconnecter ?')) {
         firebase.auth().signOut().then(() => {
             console.log('Déconnexion réussie');
-            window.location.href = 'login.html';
+            window.location.href = 'index.html'; // ici a la place de index etait login
         }).catch((error) => {
             console.error('Erreur lors de la déconnexion:', error);
             alert('Erreur lors de la déconnexion');
