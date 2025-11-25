@@ -42,20 +42,34 @@ body {
     transition: width 0.3s ease;
     overflow: hidden;
 }
-
+/* il ya de l'inverse ici sidebar-expend a 64px et sidebar:not (.sidebar-expanded) a 256px, je l'ai fais pour basculer l'etat initial du sidebar par celui d'un sidebar de 64px */
 .sidebar-expanded {
-    width: 256px;
-}
-
-.sidebar:not(.sidebar-expanded) {
     width: 64px;
 }
 
-.sidebar:not(.sidebar-expanded) .sidebar-title,
-.sidebar:not(.sidebar-expanded) .user-info,
-.sidebar:not(.sidebar-expanded) .nav-text {
-    display: none;
+.sidebar:not(.sidebar-expanded) {
+    width: 256px;
 }
+
+/* Texte visible par défaut */
+.sidebar-title,
+.user-info,
+.nav-text {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 0.3s ease, transform 0.4s ease;
+    white-space: nowrap;
+}
+
+/* Texte masqué mais avec animation */
+.sidebar-expanded .sidebar-title,
+.sidebar-expanded .user-info,
+.sidebar-expanded .nav-text {
+    opacity: 0;
+    transform: translateX(-10px);
+    pointer-events: none;  /* empêche d'interagir même si invisible */
+}
+
 
 .sidebar-header {
     padding: 1rem;
