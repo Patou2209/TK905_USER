@@ -16,7 +16,7 @@ let useMockData = true; // ← CHANGEZ À false POUR MODE RÉEL
 document.addEventListener('DOMContentLoaded', () => {
     // Vérifier si on est sur la page dashboard.html  ici a place de dshboard etait index
     const currentPage = window.location.pathname.split('/').pop();
-    if (currentPage === 'index.html' || currentPage === '') {
+    if (currentPage === 'dashboard.html' || currentPage === '') {
         initializeApp();
     }
 });
