@@ -291,7 +291,7 @@ body {
 }
 
 .tracker-item {
-    padding: 1rem;
+    padding: 0.7rem;
     border-bottom: 1px solid #e5e7eb;
     cursor: pointer;
     transition: background 0.2s;
@@ -906,17 +906,22 @@ body {
         color: var(--green);
         border: 1px solid var(--green);
         font-weight: 600;
-    }   
+    } 
+    .nav-item svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}  
 }
 @media (max-width: 480px) {
    
    /* il ya de l'inverse ici sidebar-expend a 64px et sidebar:not (.sidebar-expanded) a 256px, je l'ai fais pour basculer l'etat initial du sidebar par celui d'un sidebar de 64px */
     .sidebar-expanded {
-        width: 50px;
+        width: 45px;
     }
 
     .sidebar:not(.sidebar-expanded) {
-        width: 200px;
+        width: 190px;
     }
 
     /* Texte visible par défaut */
@@ -1084,11 +1089,11 @@ body {
 @media (max-width: 992px) {
     /* il ya de l'inverse ici sidebar-expend a 64px et sidebar:not (.sidebar-expanded) a 256px, je l'ai fais pour basculer l'etat initial du sidebar par celui d'un sidebar de 64px */
     .sidebar-expanded {
-        width: 50px;
+        width: 45px;
     }
 
     .sidebar:not(.sidebar-expanded) {
-        width: 200px;
+        width: 190px;
     }
 
     /* Texte visible par défaut */
@@ -1139,7 +1144,7 @@ body {
     }
     .tracker-list{
         width: 100%;
-        height:110px;
+        height:100px;
         overflow-y: hidden;
     }
     .tracker-items{
@@ -1252,33 +1257,33 @@ body {
         width: 100%;
     }
     /* il ya de l'inverse ici sidebar-expend a 64px et sidebar:not (.sidebar-expanded) a 256px, je l'ai fais pour basculer l'etat initial du sidebar par celui d'un sidebar de 64px */
-.sidebar-expanded {
-    width: 64px;
-}
+    .sidebar-expanded {
+        width: 45px;
+    }
 
-.sidebar:not(.sidebar-expanded) {
-    width: 256px;
-}
+    .sidebar:not(.sidebar-expanded) {
+        width: 190px;
+    }
 
-/* Texte visible par défaut */
-.sidebar-title,
-.user-info,
-.nav-text {
-    opacity: 1;
-    transform: translateX(0);
-    transition: opacity 0.3s ease, transform 0.4s ease;
-    white-space: nowrap;
-}
+    /* Texte visible par défaut */
+    .sidebar-title,
+    .user-info,
+    .nav-text {
+        opacity: 1;
+        transform: translateX(0);
+        transition: opacity 0.3s ease, transform 0.4s ease;
+        white-space: nowrap;
+    }
 
-/* Texte masqué mais avec animation */
-.sidebar-expanded .sidebar-title,
-.sidebar-expanded .user-info,
-.sidebar-expanded .nav-text {
-    opacity: 0;
-    transform: translateX(-10px);
-    pointer-events: none;  /* empêche d'interagir même si invisible */
-}
-}
+    /* Texte masqué mais avec animation */
+    .sidebar-expanded .sidebar-title,
+    .sidebar-expanded .user-info,
+    .sidebar-expanded .nav-text {
+        opacity: 0;
+        transform: translateX(-10px);
+        pointer-events: none;  /* empêche d'interagir même si invisible */
+    }
+    }
 
 
 
