@@ -745,7 +745,7 @@ body {
     gap: 0.5rem;
     }
     .tracker-list {
-        width: 280px;
+        width: 100%;
     }
 
     .topbar {
@@ -772,8 +772,11 @@ body {
         overflow-x: auto;
         gap: 0.5rem;
         width: auto;
-        overflow-x: scroll;
-        
+        overflow-x: scroll;  
+    }
+    .tracker-items .tracker-item{
+        min-width: 200px;
+        gap: 5px;
     }
     .tracker-item .tracker-info{
         display: none;
@@ -980,6 +983,9 @@ body {
         width: auto;
         overflow-x: scroll;
     }
+    .tracker-items .tracker-item{
+        min-width: 200px;
+    }
     .tracker-item .tracker-info{
         display: none;
     }
@@ -1123,7 +1129,7 @@ body {
     gap: 0.5rem;
     }
     .tracker-list {
-        width: 280px;
+        width:100%;
     }
 
     .topbar {
@@ -1153,6 +1159,9 @@ body {
         width: auto;
         overflow-x: scroll;
         
+    }
+    .tracker-items .tracker-item{
+        min-width: 200px;
     }
     .tracker-item .tracker-info{
         display: none;
@@ -1294,6 +1303,10 @@ body {
         gap: 0.5rem;
         width: auto;
         overflow-x: scroll;
+    }
+    .tracker-items .tracker-item{
+        min-width: 200px;
+        border-right: 1px solid #e5e7eb;
     }
     .tracker-item .tracker-info{
         display: none;
