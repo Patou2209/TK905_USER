@@ -764,8 +764,6 @@ body {
     }
     .tracker-list{
         width: 100%;
-        height:100px;
-        overflow-y: hidden;
     }
     .tracker-items{
         font-size: 0.775rem;
@@ -775,9 +773,10 @@ body {
         gap: 0.5rem;
         width: auto;
         overflow-x: scroll;
-        height: 50px;
-        overflow-y: hidden;
         
+    }
+    .tracker-item .tracker-info{
+        display: none;
     }
     .content-area {
         flex-direction: column;
@@ -971,8 +970,6 @@ body {
     }
     .tracker-list{
         width: 100%;
-        height:100px;
-        overflow-y: hidden;
     }
     .tracker-items{
         font-size: 0.775rem;
@@ -982,9 +979,9 @@ body {
         gap: 0.5rem;
         width: auto;
         overflow-x: scroll;
-        height: 50px;
-        overflow-y: hidden;
-        
+    }
+    .tracker-item .tracker-info{
+        display: none;
     }
     .content-area {
         flex-direction: column;
@@ -1145,8 +1142,7 @@ body {
     }
     .tracker-list{
         width: 100%;
-        height:100px;
-        overflow-y: hidden;
+
     }
     .tracker-items{
         font-size: 0.775rem;
@@ -1156,9 +1152,10 @@ body {
         gap: 0.5rem;
         width: auto;
         overflow-x: scroll;
-        height: 50px;
-        overflow-y: hidden;
         
+    }
+    .tracker-item .tracker-info{
+        display: none;
     }
     .content-area {
         flex-direction: column;
@@ -1288,8 +1285,6 @@ body {
     }
     .tracker-list{
         width: 100%;
-        height:100px;
-        overflow-y: hidden;
     }
     .tracker-items{
         font-size: 0.775rem;
@@ -1299,8 +1294,9 @@ body {
         gap: 0.5rem;
         width: auto;
         overflow-x: scroll;
-        height: 50px;
-        overflow-y: hidden;
+    }
+    .tracker-item .tracker-info{
+        display: none;
     }
 
 
@@ -1529,4 +1525,4 @@ body {
     background: #f9fafb;
     border-color: #9ca3af;
 }
-
+}
