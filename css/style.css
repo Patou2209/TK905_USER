@@ -705,6 +705,10 @@ body {
     .sidebar:not(.sidebar-expanded) {
         width: 200px;
     }
+    /* quand le sidebar est etendu sur mobil l'info-panel ne s'affiche pas car ca cree un faut design */
+    .sidebar:not(.sidebar-expanded) .info-panel {
+        display: none;
+    }
 
     /* Texte visible par défaut */
     .sidebar-title,
@@ -927,6 +931,10 @@ body {
     .sidebar:not(.sidebar-expanded) {
         width: 190px;
     }
+    /* quand le sidebar est etendu sur mobil l'info-panel ne s'affiche pas car ca cree un faut design */
+    .sidebar:not(.sidebar-expanded) .info-panel {
+        display: none;
+    }
 
     /* Texte visible par défaut */
     .sidebar-title,
@@ -1099,6 +1107,10 @@ body {
     .sidebar:not(.sidebar-expanded) {
         width: 190px;
     }
+    /* quand le sidebar est etendu sur mobil l'info-panel ne s'affiche pas car ca cree un faut design */
+    .sidebar:not(.sidebar-expanded) .info-panel {
+        display: none;
+    }
 
     /* Texte visible par défaut */
     .sidebar-title,
@@ -1269,9 +1281,14 @@ body {
     .sidebar-expanded {
         width: 45px;
     }
+    
 
     .sidebar:not(.sidebar-expanded) {
         width: 190px;
+    }
+    /* quand le sidebar est etendu sur mobil l'info-panel ne s'affiche pas car ca cree un faut design */
+    .sidebar:not(.sidebar-expanded) .info-panel {
+        display: none;
     }
 
     /* Texte visible par défaut */
