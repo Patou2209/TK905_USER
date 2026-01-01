@@ -433,7 +433,7 @@ body {
 /* History Controls Panel */
 
 .history-controls {
-    position: absolute;
+    position: fixed; /* Changé de absolute à fixed car ca devient maintenant deplacable */
     top: 1rem;
     right: 1rem;
     background: white;
@@ -448,8 +448,16 @@ body {
 .history-controls-content h3 {
     font-size: 1.125rem;
     font-weight: bold;
-    margin-bottom: 1rem;
     color: #1f2937;
+    cursor: move; 
+    user-select: none;
+    padding: 0.5rem 0;
+    margin: -0.5rem 0 1rem 0;
+    border-bottom: 2px solid #f0f0f0;
+}
+.history-controls-content h3:hover {
+    background: #f8f9fa;
+    border-radius: 0.5rem;
 }
 
 .history-date-selector {

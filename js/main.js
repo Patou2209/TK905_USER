@@ -537,3 +537,130 @@ function getStatusColor(status) {
 }
 
 console.log('Application chargée et prête');
+
+// ==================== Script pour le deplacement du panneau de l'historique ====================
+// Rendre le panneau d'historique déplaçable
+function makeDraggable(element) {
+    let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+    let isDragging = false;
+    
+    // Créer une barre de titre pour le drag
+    const header = element.querySelector('h3');
+    if (header) {
+        header.style.cursor = 'move';
+        header.style.userSelect = 'none';
+        header.onmousedown = dragMouseDown;
+    }
+    
+    function dragMouseDown(e) {
+        e.preventDefault();
+        isDragging = false;
+        
+        // Position initiale de la souris
+        pos3 = e.clientX;
+        pos4 = e.clientY;
+        
+        document.onmouseup = closeDragElement;
+        document.onmousemove = elementDrag;
+    }
+    
+    function elementDrag(e) {
+        e.preventDefault();
+        isDragging = true;
+        
+        // Calculer la nouvelle position
+        pos1 = pos3 - e.clientX;
+        pos2 = pos4 - e.clientY;
+        pos3 = e.clientX;
+        pos4 = e.clientY;
+        
+        // Nouvelle position de l'élément
+        let newTop = element.offsetTop - pos2;
+        let newLeft = element.offsetLeft - pos1;
+        
+        // Limiter aux bords de la fenêtre
+        const maxX = window.innerWidth - element.offsetWidth;
+        const maxY = window.innerHeight - element.offsetHeight;
+        
+        newLeft = Math.max(0, Math.min(newLeft, maxX));
+        newTop = Math.max(0, Math.min(newTop, maxY));
+        
+        element.style.top = newTop + "px";
+        element.style.left = newLeft + "px";
+        element.style.right = "auto";
+    }
+    
+    function closeDragElement() {
+        document.onmouseup = null;
+        document.onmousemove = null;
+    }
+}
+
+// Initialiser quand le DOM est prêt
+document.addEventListener('DOMContentLoaded', function() {
+    const historyControls = document.getElementById('historyControls');
+    if (historyControls) {
+        makeDraggable(historyControls);
+    }
+});
+
+// Alternative avec touch support pour mobile
+function makeDraggableMobile(element) {
+    let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+    
+    const header = element.querySelector('h3');
+    if (header) {
+        header.style.cursor = 'move';
+        header.style.userSelect = 'none';
+        header.style.touchAction = 'none';
+        
+        // Support souris
+        header.addEventListener('mousedown', dragStart);
+        
+        // Support tactile
+        header.addEventListener('touchstart', dragStart);
+    }
+    
+    function dragStart(e) {
+        const touch = e.type === 'touchstart' ? e.touches[0] : e;
+        e.preventDefault();
+        
+        pos3 = touch.clientX;
+        pos4 = touch.clientY;
+        
+        document.addEventListener('mousemove', elementDrag);
+        document.addEventListener('mouseup', closeDrag);
+        document.addEventListener('touchmove', elementDrag);
+        document.addEventListener('touchend', closeDrag);
+    }
+    
+    function elementDrag(e) {
+        const touch = e.type === 'touchmove' ? e.touches[0] : e;
+        e.preventDefault();
+        
+        pos1 = pos3 - touch.clientX;
+        pos2 = pos4 - touch.clientY;
+        pos3 = touch.clientX;
+        pos4 = touch.clientY;
+        
+        let newTop = element.offsetTop - pos2;
+        let newLeft = element.offsetLeft - pos1;
+        
+        const maxX = window.innerWidth - element.offsetWidth;
+        const maxY = window.innerHeight - element.offsetHeight;
+        
+        newLeft = Math.max(0, Math.min(newLeft, maxX));
+        newTop = Math.max(0, Math.min(newTop, maxY));
+        
+        element.style.top = newTop + "px";
+        element.style.left = newLeft + "px";
+        element.style.right = "auto";
+    }
+    
+    function closeDrag() {
+        document.removeEventListener('mousemove', elementDrag);
+        document.removeEventListener('mouseup', closeDrag);
+        document.removeEventListener('touchmove', elementDrag);
+        document.removeEventListener('touchend', closeDrag);
+    }
+}
